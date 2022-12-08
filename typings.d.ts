@@ -1,14 +1,4 @@
-type NewsResponse = {
-  pagination: Pagination;
-  data: Article[];
-};
-type Pagination = {
-  count: Int;
-  limit: Int;
-  offset: Int;
-  total: Int;
-};
-type Article = {
+export type Article = {
   author: string | null;
   category: Category;
   country: Country;
@@ -21,7 +11,18 @@ type Article = {
   url: string;
 };
 
-type Category =
+export type NewsResponse = {
+  data: [Article];
+  pagination: Pagination;
+};
+export type Pagination = {
+  count: Int;
+  limit: Int;
+  offset: Int;
+  total: Int;
+};
+
+export type Category =
   | 'business'
   | 'entertainment'
   | 'general'
