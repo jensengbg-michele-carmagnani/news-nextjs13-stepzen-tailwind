@@ -3,19 +3,14 @@ import { CATEGORIES } from '../constants';
 import fetchNews from '../lib/fetchNews';
 import { NewsResponse } from '../typings';
 import NewsList from './NewsList';
-import news from '../newsMock.json';
 
-type Props = {
-  news: NewsResponse;
-};
+type Props = {};
 
 const HomePage = async ({}: Props) => {
-  // const news: NewsResponse =
-  //   response || (await fetchNews(CATEGORIES.join(',')));
-  console.log(news);
+  const news: NewsResponse = await fetchNews(CATEGORIES.join(','));
 
   return (
-    <div>
+    <div className="mt-5">
       <NewsList news={news} />
     </div>
   );

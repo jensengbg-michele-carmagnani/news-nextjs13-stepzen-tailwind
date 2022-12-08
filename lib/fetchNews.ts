@@ -1,5 +1,5 @@
 import { Category } from './../typings.d';
-import { request, gql } from 'graphql-request';
+import { gql } from 'graphql-request';
 import sortNewsByImage from './soartNewsByImage';
 const fetchNews = async (
   category?: Category | string,
@@ -8,12 +8,16 @@ const fetchNews = async (
 ) => {
   // ...graphql query
   const query = gql`
-    query MyQuery($access_key: String!, $categories: String) {
+    query MyQuery(
+      $access_key: String!
+      $categories: String
+      $keywords: String
+    ) {
       myQuery(
         access_key: $access_key
         categories: $categories
         countries: "us,gb,se,it"
-        sources: "cnn,bbc"
+        keywords: $keywords
       ) {
         data {
           author
@@ -58,9 +62,8 @@ const fetchNews = async (
       }),
     }
   );
-
+  console.log(' keywords---->', keywords, category);
   const newsResponse = await res.json();
-  console.log(newsResponse);
 
   //sort function by images vs not image
   const news = sortNewsByImage(newsResponse.data.myQuery);
@@ -68,4 +71,4 @@ const fetchNews = async (
 };
 export default fetchNews;
 
-//http://api.mediastack.com/v1/news?access_key=08fcdb813a546f761028b0860b47a830&sources=cnn,bbc&categories=business,entertainment,health,science,sports,technology&countries=us,gb,se,it
+//http://api.mediastack.com/v1/news?access_key=08fcdb813a546f761028b0860b47a830&sources=cnn,bbc&categories=business,entertainment,health,science,sports,technology&countries=us,gb,se,it&limit=100&offset=0&sort=published_desc&keywords=

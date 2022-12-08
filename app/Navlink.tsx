@@ -1,7 +1,6 @@
-'use client'
+'use client';
 import Link from 'next/link';
 import React from 'react';
-import {usePathname} from "next/navigation"
 
 type Props = {
   key: string;
@@ -10,8 +9,6 @@ type Props = {
 };
 
 export default function Navlink({ category, key, isActive }: Props) {
-  const pathname = usePathname();
- 
   return (
     <Link
       className={`navLink ${

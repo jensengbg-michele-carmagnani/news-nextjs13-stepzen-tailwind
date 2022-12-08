@@ -1,3 +1,5 @@
+import { Category } from './typings';
+
 export const CATEGORIES: Category[] = [
   'business',
   'entertainment',

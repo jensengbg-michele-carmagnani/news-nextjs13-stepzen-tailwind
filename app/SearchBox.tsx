@@ -18,9 +18,9 @@ function SearchBox() {
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="w-full h-14 placeholder-gray-500 text-gray-500 outline-none flex-1 bg-transparent border-b border-gray-500 dark:text-red-500"
+        className="w-full h-14 placeholder-gray-500 text-gray-500 outline-none flex-1 bg-transparent  border-gray-500 dark:text-red-500"
         type="text"
-        placeholder="Search for anything"
+        placeholder="Search for anything..."
       />
       <button
         disabled={!input}

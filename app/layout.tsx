@@ -8,10 +8,8 @@ export default function DashboardLayout({
 }) {
   return (
     <html>
-      {/* Include shared UI here e.g. a header or sidebar */}
-      <head />
       <Providers>
-        <body className="bg-grey-200 dark:bg-zinc-900  transition-all duration-700">
+        <body className="bg-grey-100 dark:bg-zinc-900  transition-all duration-700">
           <Header />
           <div className="max-w-6xl mx-auto">{children}</div>
         </body>
