@@ -6,7 +6,7 @@ type Props = {
   searchParams?: Article;
 };
 
-const page = ({ searchParams }: Props) => {
+const ArticlePage = ({ searchParams }: Props) => {
   if (
     (searchParams && Object.entries(searchParams).length === 0) ||
     !searchParams
@@ -42,4 +42,4 @@ const page = ({ searchParams }: Props) => {
   );
 };
 
-export default page;
+export default ArticlePage;
